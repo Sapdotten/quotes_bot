@@ -1,1 +1,7 @@
 aiogram
+gigachain
+gigachat
+python-dotenv
+pytz
+aiosqlite
+sqlalchemy
