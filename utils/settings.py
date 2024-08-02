@@ -1,5 +1,6 @@
 import os
 import logging
+import json
 
 from dotenv import load_dotenv
 
@@ -10,6 +11,7 @@ class Settings:
     _GIGACHAT_TOKEN = "GIGA_TOKEN"
     _BOT_TOKEN = "BOT_TOKEN"
     _ADMIN = "ADMIN_ID"
+    CONFIG_FILE = "configs.json"
 
     @classmethod
     def load_data_from_file(cls):
@@ -34,3 +36,9 @@ class Settings:
     @classmethod
     def get_admin_id(cls):
         return os.getenv(cls._ADMIN)
+    
+    @classmethod
+    def get_database_path(cls):
+        with open(cls.CONFIG_FILE, 'r') as f:
+            data = json.load(f)
+        return data["database_path"]
